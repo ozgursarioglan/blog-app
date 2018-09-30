@@ -12,7 +12,7 @@
 
 
   <div class="author-box">
-  <img src="http://classpixels.in/readtemplate/img/author-avatar.png">
+  <%= image_tag avatar_url(@post.user.email) %>
   <%= @post.user.email %>
   </div>
 
