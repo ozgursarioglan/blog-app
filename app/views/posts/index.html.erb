@@ -1,0 +1,32 @@
+ <section class="post-list row">
+
+<p id="notice"><%= notice %></p>
+
+
+
+  
+    <% @posts.each do |post| %>
+      <!--<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'New Post', new_post_path %>
+      </tr>-->
+
+        <div class="col-xs-12 col-sm-12 col-lg-12 post-line">
+    <span class="post-titles"><h1><%= link_to post.title, post %></h1></span>
+    <time class="dates"><br/><%= post.created_at.strftime('%F') %></time>
+
+  </div>
+    <% end %>
+
+
+
+
+<div class="pagination-wrapper">
+
+
+
+</section>

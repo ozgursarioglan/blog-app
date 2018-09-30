@@ -1,15 +1,83 @@
-<!DOCTYPE html>
+
+
+
 <html>
-  <head>
-    <title>BlogApp</title>
+<!-- Mirrored from classpixels.in/readtemplate/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Sep 2018 13:27:49 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+    <title>Read</title>
+    <meta name="description" content="Read is a minimalistici html template." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="#">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Radley:400,400i" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="https://tr.lipsum.com/favicon.ico" />
+
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+
+
+
+</head>
+<body>
+
+  <header class="header-block row">
+    <div class="blog-title">
+      <a href="#"><h1><%= link_to 'read.', posts_path %></h1></a>
+      
+    </div>
+
+  </header>
+
+ 
+
+
+ <%= yield %>
+
+
+
+
+
+  <section class="footer">
+    <div class="footer-inner row">
+
+      <div class="col-md-12">
+
+        <p class="description">
+          Zor olacak ama buna değecek.
+        </p>
+      </div>
+      <div class="col-md-12">
+        <a href="home.html">Home</a>&nbsp;&nbsp;
+        <a href="page.html">About</a>&nbsp;&nbsp;
+        <a href="contact.html">Contact</a>&nbsp;&nbsp;
+        <a href="404.html">404 page</a>&nbsp;&nbsp;
+        <%= link_to 'New Post', new_post_path %>&nbsp;&nbsp;
+        <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+          </div>
+    </div>
+  </section>
+  <section class="copyright">&copy; 2017</section>
+ </body>
 </html>
